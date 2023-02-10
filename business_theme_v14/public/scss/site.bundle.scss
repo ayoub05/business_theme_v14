@@ -1,0 +1,33 @@
+@import "frappe/public/scss/desk/variables";
+@import "./business_theme";
+@import "./sidebar/_sidebar-base";
+
+.quik-add{
+
+    .list-inline {
+        white-space: nowrap;
+    }
+    .list-unstyled{
+
+        .header {
+        color: #999;
+        font-size: 12px;
+        ransform: uppercase;
+        padding: 20px 15px 12px;
+    }
+    a {
+        display: block;
+        padding: 7px 18px;
+        color: #777;
+        white-space: nowrap;
+    }
+}
+
+} 
+.dropdown-quik-add{
+    a.btn{
+        background-color: $primary;
+        fill:#fff ;
+        stroke:#fff ;
+    } 
+} 

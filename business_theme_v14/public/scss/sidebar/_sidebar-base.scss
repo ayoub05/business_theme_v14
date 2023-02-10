@@ -1,0 +1,117 @@
+// Sidebar Base
+
+$spacer-lg: 3rem;
+$spacer-sm: 1.5rem;
+
+$layout-spacer-lg: 3rem;
+$layout-spacer-x: 1.5rem;
+
+$app-sidebar-width: 280px;
+$app-sidebar-width-collapsed: 80px;
+
+$logo-height: 23px;
+$logo-width: 97px;
+
+$app-header-height: 60px;
+
+$headings-font-weight: 400;
+
+$font-size-base: 0.88rem;
+$font-size-lg: ($font-size-base * 1.25);
+$font-size-sm: ($font-size-base * 1.1);
+$font-size-xs: ($font-size-base / 1.1);
+
+$primary: #2490EF;
+#body{
+    padding-left: $app-sidebar-width;
+} 
+.layout-side-section{
+    display: none;
+} 
+.ps {
+    overflow: hidden !important;
+    overflow-anchor: none;
+    touch-action: auto;
+  }
+
+.app-sidebar {
+  width: $app-sidebar-width;
+  display: flex;
+  z-index: 11;
+  overflow: hidden;
+  min-width: $app-sidebar-width;
+  position: fixed;
+  background-color:#fff ;
+  height: 100vh;
+  flex: 0 0 $app-sidebar-width;
+  margin-top: -$app-header-height;
+  padding-top: $app-header-height;
+  transition: all .2s;
+
+  .app-sidebar__inner {
+    padding: 2px ($layout-spacer-x) $layout-spacer-x;
+  }
+
+  .scrollbar-sidebar {
+    z-index: 15;
+    width: 100%;
+  }
+
+  .app-sidebar-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.05;
+    background-size: cover;
+    z-index: 10;
+  }
+
+  .app-header__logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 11;
+  }
+
+  &.sidebar-shadow {
+    box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.app-sidebar__heading {
+  text-transform: uppercase;
+  font-size: $font-size-xs;
+  margin: ($layout-spacer-x / 2) 0;
+  font-weight: bold;
+  color: $primary;
+  white-space: nowrap;
+  position: relative;
+}
+
+.sidebar-mobile-overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  opacity: .6;
+  left: 0;
+  top: 0;
+  z-index: 12;
+}
+
+// Sidebar Components
+
+@import "modifiers/navmenu-vertical";
+
+// Sidebar Modifiers
+
+@import "themes/sidebar-light";
+@import "themes/sidebar-dark";
+
+@import "modifiers/fixed-sidebar";
+@import "modifiers/closed-sidebar";
+@import "modifiers/_perfect-scrollbar";
