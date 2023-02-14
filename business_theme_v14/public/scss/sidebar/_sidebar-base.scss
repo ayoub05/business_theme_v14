@@ -4,9 +4,9 @@ $spacer-lg: 3rem;
 $spacer-sm: 1.5rem;
 
 $layout-spacer-lg: 3rem;
-$layout-spacer-x: 1.5rem;
+$layout-spacer-x: 0.5rem;
 
-$app-sidebar-width: 280px;
+$app-sidebar-width: 230px;
 $app-sidebar-width-collapsed: 80px;
 
 $logo-height: 23px;
@@ -22,6 +22,27 @@ $font-size-sm: ($font-size-base * 1.1);
 $font-size-xs: ($font-size-base / 1.1);
 
 $primary: #2490EF;
+
+
+
+header{
+  .collapse-expand {
+    .icon{
+      fill: white !important;
+      stroke: #fff !important;
+    } 
+    
+    cursor: pointer;
+  } 
+} 
+.closed-sidebar {
+ #body  {
+    padding-left: $app-sidebar-width-collapsed;
+  }
+  .collapse-expand{
+    width: $app-sidebar-width-collapsed;
+  } 
+}
 #body{
     padding-left: $app-sidebar-width;
 } 
@@ -29,8 +50,8 @@ $primary: #2490EF;
     display: none;
 } 
 .ps {
-    overflow: hidden !important;
-    overflow-anchor: none;
+   // overflow: hidden !important;
+    //overflow-anchor: none;
     touch-action: auto;
   }
 
@@ -38,7 +59,7 @@ $primary: #2490EF;
   width: $app-sidebar-width;
   display: flex;
   z-index: 11;
-  overflow: hidden;
+  overflow: auto;
   min-width: $app-sidebar-width;
   position: fixed;
   background-color:#fff ;
@@ -48,6 +69,14 @@ $primary: #2490EF;
   padding-top: $app-header-height;
   transition: all .2s;
 
+  .collapse-expand{
+    position: fixed;
+    height: 35px;
+    bottom: 0;
+    width: $app-sidebar-width;
+    background-color: #000000;
+    cursor: pointer;
+  } 
   .app-sidebar__inner {
     padding: 2px ($layout-spacer-x) $layout-spacer-x;
   }

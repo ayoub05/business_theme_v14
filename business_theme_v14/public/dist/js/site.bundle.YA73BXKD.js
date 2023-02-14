@@ -6,9 +6,9 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="index.html" >
+                    <a href="/app/" >
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard Example 1
+                        Dashboard
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Main Menu</li>
@@ -16,6 +16,7 @@
             </ul>
         </div>
     </div>
+ 
 </div>`;
 
   // ../business_theme_v14/business_theme_v14/public/js/sidebar/appsidebar.js
@@ -31,8 +32,8 @@
       this.make();
     }
     make() {
-      this.bind_events();
       this.bind();
+      this.bind_events();
     }
     async bind() {
       this.sidebar_pages = !this.discard ? await this.get_pages() : this.sidebar_pages;
@@ -82,6 +83,11 @@
         let item = menu[key];
         let $li = $("<li></li>").appendTo($sidebar);
         let $a = $(`<a href="/app/${item.route || "#"}"></a>`).appendTo($li);
+        $a.on("click", () => {
+          $(".vertical-nav-menu *").removeClass("mm-active");
+          $a.addClass("mm-active");
+          $a.parent().parent().closest("li").addClass("mm-active");
+        });
         if (item.icon) {
           $a.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${item.icon || "folder-normal"}>${frappe.utils.icon(item.icon || "folder-normal", "md")}</i>`);
         }
@@ -96,6 +102,11 @@
               $childA.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${child.icon || "folder-normal"}>${frappe.utils.icon(child.icon || "folder-normal", "md")}</i>`);
             }
             $childA.append(child.name);
+            $childA.on("click", () => {
+              $(".vertical-nav-menu *").removeClass("mm-active");
+              $childA.addClass("mm-active");
+              $childA.parent().parent().closest("li").addClass("mm-active");
+            });
           });
           let $child_item_section = $li.find("ul");
           $drop_icon.on("click", () => {
@@ -108,18 +119,6 @@
       console.log($sidebar);
     }
     bind_events() {
-      $(document).on("page-change", function() {
-        $("header .navbar .custom-menu").remove();
-      });
-      $("#search-modal").on("shown.bs.modal", function() {
-        var search_modal = $(this);
-        setTimeout(function() {
-          search_modal.find("#modal-search").focus();
-        }, 300);
-      });
-      $(".navbar-toggle-full-width").click(() => {
-        frappe.ui.toolbar.toggle_full_width();
-      });
     }
     get_pages() {
       return frappe.xcall("frappe.desk.desktop.get_menu_sidebar_items");
@@ -212,6 +211,23 @@
       avatar: frappe.avatar(frappe.session.user, "avatar-medium"),
       navbar_settings: frappe.boot.navbar_settings
     }));
+    $(".dropdown-help").remove();
+    $("header .container").prepend(`
+	<span class="collapse-expand cursor-pointer" data-class="closed-sidebar">
+		${frappe.utils.icon("menu", "md")}
+	</span>
+`);
+    $(".collapse-expand").click(function() {
+      var classToSwitch = $(this).attr("data-class");
+      var containerElement = ".main-section";
+      $(containerElement).toggleClass(classToSwitch);
+      var closeBtn = $(this);
+      if (closeBtn.hasClass("is-active")) {
+        closeBtn.removeClass("is-active");
+      } else {
+        closeBtn.addClass("is-active");
+      }
+    });
   });
 })();
-//# sourceMappingURL=site.bundle.GQ4MORKG.js.map
+//# sourceMappingURL=site.bundle.YA73BXKD.js.map

@@ -22,7 +22,11 @@
         white-space: nowrap;
     }
 }
-
+.icon {
+   
+    fill: white !important;
+    stroke: #fff !important;
+}
 } 
 .dropdown-quik-add{
     a.btn{
@@ -30,4 +34,16 @@
         fill:#fff ;
         stroke:#fff ;
     } 
+} 
+header{
+    .container{
+        margin: 0px;
+       padding: 0px;
+       width: 100% !important;
+       max-width: 100% !important;
+    } 
+
+    .app-logo{
+        margin-left: 20px;
+    }  
 } 
