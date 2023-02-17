@@ -41,8 +41,13 @@
       let menuData = this.all_pages;
       let sidebarMenu = [];
       let parentMap = {};
+      let current_url = document.location.pathname.replace("/app/", "");
       for (let i = 0; i < menuData.length; i++) {
         let item = menuData[i];
+        let selected = current_url.startsWith(item.route);
+        menuData[i].selected = selected;
+        if (current_url === "" && item.route === "home")
+          menuData[i].selected = true;
         if (item.parent_globale_menu_item) {
           if (!parentMap[item.parent_globale_menu_item]) {
             parentMap[item.parent_globale_menu_item] = [];
@@ -66,6 +71,7 @@
             name: item.name,
             icon: item.icon,
             route: item.route,
+            selected: item.selected,
             items: []
           };
         } else {
@@ -74,7 +80,8 @@
             menu[item.parent_globale_menu_item].items.push({
               name: item.name,
               icon: item.icon,
-              route: item.route
+              route: item.route,
+              selected: item.selected
             });
         }
       });
@@ -83,6 +90,10 @@
         let item = menu[key];
         let $li = $("<li></li>").appendTo($sidebar);
         let $a = $(`<a href="/app/${item.route || "#"}"></a>`).appendTo($li);
+        if (item.selected) {
+          $a.addClass("mm-active");
+          $a.parent().parent().closest("li").addClass("mm-active");
+        }
         $a.on("click", () => {
           $(".vertical-nav-menu *").removeClass("mm-active");
           $a.addClass("mm-active");
@@ -98,6 +109,10 @@
           item.items.forEach((child) => {
             let $childLi = $("<li></li>").appendTo($ul);
             let $childA = $(`<a href="/app/${child.route || "#"}"></a>`).appendTo($childLi);
+            if (child.selected) {
+              $childA.addClass("mm-active");
+              $childA.parent().parent().closest("li").addClass("mm-active");
+            }
             if (child.icon) {
               $childA.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${child.icon || "folder-normal"}>${frappe.utils.icon(child.icon || "folder-normal", "md")}</i>`);
             }
@@ -116,7 +131,6 @@
           });
         }
       }
-      console.log($sidebar);
     }
     bind_events() {
     }
@@ -193,18 +207,21 @@
     </div>
 </li>`;
 
+  // ../business_theme_v14/business_theme_v14/public/js/ui/listview.js
+  frappe.views.ListView = class ListView extends frappe.views.ListView {
+    constructor(opts) {
+      super(opts);
+      console.log("ListView");
+    }
+    after_render() {
+      super.after_render();
+      console.log(this);
+    }
+  };
+
   // ../business_theme_v14/business_theme_v14/public/js/site.bundle.js
+  frappe.frappe_sidebar = new frappe.ui.toolbar.AppSidebar();
   $(document).ready(function() {
-    if (!frappe.utils.supportsES6) {
-      frappe.msgprint({
-        indicator: "red",
-        title: __("Browser not supported"),
-        message: __("Some of the features might not work in your browser. Please update your browser to the latest version.")
-      });
-    }
-    if (frappe.boot && frappe.boot.home_page !== "setup-wizard") {
-      frappe.frappe_sidebar = new frappe.ui.toolbar.AppSidebar();
-    }
     $("header .navbar .custom-menu").prepend();
     $("body > div.main-section > header > div > div > ul").prepend('<li class="vertical-bar d-none d-sm-block"></li>');
     $("body > div.main-section > header > div > div > ul").prepend(frappe.render_template("quikadd", {
@@ -230,4 +247,4 @@
     });
   });
 })();
-//# sourceMappingURL=site.bundle.YA73BXKD.js.map
+//# sourceMappingURL=site.bundle.L6VFTHU7.js.map

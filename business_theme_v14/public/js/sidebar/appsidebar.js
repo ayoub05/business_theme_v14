@@ -28,18 +28,29 @@ frappe.ui.toolbar.AppSidebar = class {
 		let sidebarMenu = [];
 		let parentMap = {};
 
+		let current_url =document.location.pathname.replace('/app/','');
+		
 		// creating a map of all parent items
 		for (let i = 0; i < menuData.length; i++) {
 			let item = menuData[i];
+			let selected =current_url.startsWith(item.route);
+			menuData[i].selected=selected;
+
+			if (current_url ==="" && item.route==="home" )
+				menuData[i].selected=true;
+
 			if (item.parent_globale_menu_item) {
 				if (!parentMap[item.parent_globale_menu_item]) {
 					parentMap[item.parent_globale_menu_item] = [];
 				}
+				
 				parentMap[item.parent_globale_menu_item].push(item);
 			} else {
+				
 				sidebarMenu.push({ name: item.name, route: item.route, icon: item.icon, subItems: [] });
 			}
 		}
+		
 		// adding sub-items to their respective parent items
 		for (let i = 0; i < sidebarMenu.length; i++) {
 			let parentItem = sidebarMenu[i];
@@ -55,6 +66,7 @@ frappe.ui.toolbar.AppSidebar = class {
 					name: item.name,
 					icon: item.icon,
 					route: item.route,
+					selected:item.selected,
 					items: []
 				};
 			} else {
@@ -63,7 +75,8 @@ frappe.ui.toolbar.AppSidebar = class {
 					menu[item.parent_globale_menu_item].items.push({
 						name: item.name,
 						icon: item.icon,
-						route: item.route
+						route: item.route,
+						selected:item.selected
 					});
 			}
 		});
@@ -74,7 +87,10 @@ frappe.ui.toolbar.AppSidebar = class {
 			let $li = $("<li></li>").appendTo($sidebar);
 
 			let $a = $(`<a href="/app/${item.route || '#'}"></a>`).appendTo($li);
-
+			if(item.selected){
+				$a.addClass("mm-active");
+				$a.parent().parent().closest('li').addClass("mm-active");
+			} 
 			$a.on("click", () => {
 				$(".vertical-nav-menu *").removeClass("mm-active");
 						$a.addClass("mm-active");
@@ -95,6 +111,10 @@ frappe.ui.toolbar.AppSidebar = class {
 				item.items.forEach(child => {
 					let $childLi = $("<li></li>").appendTo($ul);
 					let $childA = $(`<a href="/app/${child.route || '#'}"></a>`).appendTo($childLi);
+					if(child.selected){
+						$childA.addClass("mm-active");
+						$childA.parent().parent().closest('li').addClass("mm-active");
+					} 
 					if (child.icon) {
 						$childA.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${child.icon || "folder-normal"}>${frappe.utils.icon(child.icon || "folder-normal",
 							"md"
@@ -121,8 +141,9 @@ frappe.ui.toolbar.AppSidebar = class {
 
 			}
 		}
-		console.log($sidebar);
 	}
+
+
 	bind_events() {
 		// clear all custom menus on page change
 		

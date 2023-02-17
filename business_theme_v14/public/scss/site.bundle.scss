@@ -1,7 +1,14 @@
 @import "frappe/public/scss/desk/variables";
-@import "./business_theme";
+//@import "./business_theme";
 @import "./sidebar/_sidebar-base";
 
+$border-radius: 2px;
+$border-radius-sm: 4px;
+$border-radius-lg: 8px;
+.search-bar {
+	flex: 1;
+	max-width: 700px;
+} 
 .quik-add{
 
     .list-inline {

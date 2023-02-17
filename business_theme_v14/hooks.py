@@ -9,6 +9,8 @@ app_color = "grey"
 app_email = "sagar@midocean.tech"
 app_license = "MIT"
 
+app_logo_url = "/assets/business_theme_v14/images/logo.png" 
+
 # Includes in <head>
 # ------------------
 
