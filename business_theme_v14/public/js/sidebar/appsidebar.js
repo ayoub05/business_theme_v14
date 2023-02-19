@@ -29,6 +29,7 @@ frappe.ui.toolbar.AppSidebar = class {
 		let parentMap = {};
 
 		let current_url =document.location.pathname.replace('/app/','');
+		current_url=current_url.replace('/app','');
 		
 		// creating a map of all parent items
 		for (let i = 0; i < menuData.length; i++) {
@@ -149,7 +150,7 @@ frappe.ui.toolbar.AppSidebar = class {
 		
 	}
 	get_pages() {
-		return frappe.xcall("frappe.desk.desktop.get_menu_sidebar_items");
+		return frappe.xcall("business_theme_v14.settings.settings.get_menu_sidebar_items");
 	}
 
 };

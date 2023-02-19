@@ -42,6 +42,7 @@
       let sidebarMenu = [];
       let parentMap = {};
       let current_url = document.location.pathname.replace("/app/", "");
+      current_url = current_url.replace("/app", "");
       for (let i = 0; i < menuData.length; i++) {
         let item = menuData[i];
         let selected = current_url.startsWith(item.route);
@@ -135,7 +136,7 @@
     bind_events() {
     }
     get_pages() {
-      return frappe.xcall("frappe.desk.desktop.get_menu_sidebar_items");
+      return frappe.xcall("business_theme_v14.settings.settings.get_menu_sidebar_items");
     }
   };
 
@@ -247,4 +248,4 @@
     });
   });
 })();
-//# sourceMappingURL=site.bundle.L6VFTHU7.js.map
+//# sourceMappingURL=site.bundle.RCYMMLNR.js.map
