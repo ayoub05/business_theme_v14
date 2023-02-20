@@ -7,6 +7,7 @@ frappe.provide("frappe.search");
 frappe.ui.toolbar.AppSidebar = class {
 	constructor() {
 		this.pages = {};
+		$("<sidebar></sidebar>").insertAfter("header");
 		$("sidebar").replaceWith(
 			frappe.render_template("appsidebar", {
 				avatar: frappe.avatar(frappe.session.user, "avatar-medium"),

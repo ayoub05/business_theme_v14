@@ -25,6 +25,7 @@
   frappe.ui.toolbar.AppSidebar = class {
     constructor() {
       this.pages = {};
+      $("<sidebar></sidebar>").insertAfter("header");
       $("sidebar").replaceWith(frappe.render_template("appsidebar", {
         avatar: frappe.avatar(frappe.session.user, "avatar-medium"),
         navbar_settings: frappe.boot.navbar_settings
@@ -263,4 +264,4 @@
     };
   });
 })();
-//# sourceMappingURL=site.bundle.HA3GC5ZZ.js.map
+//# sourceMappingURL=site.bundle.TKDWHI4Q.js.map
