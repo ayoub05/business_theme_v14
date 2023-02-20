@@ -3,6 +3,20 @@ import "./sidebar/appsidebar.js";
 import "./toolbar/quikadd.html";
 import "./ui/listview.js";
 frappe.frappe_sidebar = new frappe.ui.toolbar.AppSidebar();
+
+frappe.router.render =function() {
+	if (this.current_route[0]) {
+		this.render_page();
+	} else {
+		// Show home
+		frappe.views.pageview.show("index");
+	}
+};
+frappe.widget.widget_factory.render_card= function() {
+	// your custom HTML here
+	this._super();
+	console.log("NumberCardWidget");
+};
 $(document).ready(function () {
 
     $("header .navbar .custom-menu").prepend();
@@ -33,5 +47,10 @@ $('.collapse-expand').click(function () {
 		closeBtn.addClass('is-active');
 	}
 });
+frappe.widget.widget_factory.render_card= function() {
+	// your custom HTML here
+	this._super();
+	console.log("NumberCardWidget");
+};
 
 });

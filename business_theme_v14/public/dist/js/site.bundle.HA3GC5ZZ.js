@@ -6,7 +6,7 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="/app/" >
+                    <a href="/app/index" >
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Dashboard
                     </a>
@@ -222,6 +222,17 @@
 
   // ../business_theme_v14/business_theme_v14/public/js/site.bundle.js
   frappe.frappe_sidebar = new frappe.ui.toolbar.AppSidebar();
+  frappe.router.render = function() {
+    if (this.current_route[0]) {
+      this.render_page();
+    } else {
+      frappe.views.pageview.show("index");
+    }
+  };
+  frappe.widget.widget_factory.render_card = function() {
+    this._super();
+    console.log("NumberCardWidget");
+  };
   $(document).ready(function() {
     $("header .navbar .custom-menu").prepend();
     $("body > div.main-section > header > div > div > ul").prepend('<li class="vertical-bar d-none d-sm-block"></li>');
@@ -246,6 +257,10 @@
         closeBtn.addClass("is-active");
       }
     });
+    frappe.widget.widget_factory.render_card = function() {
+      this._super();
+      console.log("NumberCardWidget");
+    };
   });
 })();
-//# sourceMappingURL=site.bundle.RCYMMLNR.js.map
+//# sourceMappingURL=site.bundle.HA3GC5ZZ.js.map
