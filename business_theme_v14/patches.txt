@@ -1,1 +1,1 @@
-frappe.patches.migrate_menus
+business_theme_v14.patches.migrate_menus
