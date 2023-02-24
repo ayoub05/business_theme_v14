@@ -40,12 +40,14 @@ $border-radius-lg: 8px;
         color: #777;
         white-space: nowrap;
     }
+ 
 }
-.icon {
+
+}
+.dropdown-quik-add > a > span >.icon {
    
     fill: white !important;
     stroke: #fff !important;
-}
 } 
 .dropdown-quik-add{
     a.btn{

@@ -12,7 +12,6 @@
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Main Menu</li>
-                
             </ul>
         </div>
     </div>
@@ -264,4 +263,4 @@
     };
   });
 })();
-//# sourceMappingURL=site.bundle.TKDWHI4Q.js.map
+//# sourceMappingURL=site.bundle.FR4ALM2P.js.map

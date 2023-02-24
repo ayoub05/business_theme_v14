@@ -1,4 +1,4 @@
-/* ../../../../../../tmp/tmp-4070-tx4LyLkh02IS/business_theme_v14/business_theme_v14/public/scss/site.bundle.css */
+/* ../../../../../../tmp/tmp-220707-G4jHG9oidGOk/business_theme_v14/business_theme_v14/public/scss/site.bundle.css */
 :root,
 [data-theme=light] {
   --brand-color: #0089FF;
@@ -465,13 +465,13 @@ header .collapse-expand .icon {
   stroke: #fff !important;
 }
 .closed-sidebar #body {
-  padding-right: 80px;
+  padding-left: 80px;
 }
 .closed-sidebar .collapse-expand {
   width: 80px;
 }
 #body {
-  padding-right: 230px;
+  padding-left: 230px;
 }
 .layout-side-section {
   display: none;
@@ -510,7 +510,7 @@ header .collapse-expand .icon {
 }
 .app-sidebar .app-sidebar-bg {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   height: 100%;
   width: 100%;
@@ -520,13 +520,13 @@ header .collapse-expand .icon {
 }
 .app-sidebar .app-header__logo {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   display: none;
   z-index: 11;
 }
 .app-sidebar.sidebar-shadow {
-  box-shadow: -7px 0 60px rgba(0, 0, 0, 0.05);
+  box-shadow: 7px 0 60px rgba(0, 0, 0, 0.05);
 }
 .app-sidebar__heading {
   text-transform: uppercase;
@@ -544,7 +544,7 @@ header .collapse-expand .icon {
   height: 100%;
   background: #333;
   opacity: 0.6;
-  right: 0;
+  left: 0;
   top: 0;
   z-index: 12;
 }
@@ -559,8 +559,8 @@ header .collapse-expand .icon {
   pointer-events: none;
   position: absolute;
   bottom: 0;
-  right: 0;
   left: 0;
+  right: 0;
   top: 0;
 }
 .vertical-nav-menu .mm-collapse:not(.mm-show) {
@@ -588,7 +588,7 @@ header .collapse-expand .icon {
   display: block;
   line-height: 2.4rem;
   height: 2.4rem;
-  padding: 0 45px 0 0.5rem;
+  padding: 0 0.5rem 0 45px;
   position: relative;
   border-radius: var(--border-radius);
   color: #333C44;
@@ -610,7 +610,7 @@ header .collapse-expand .icon {
   font-weight: bold;
 }
 .vertical-nav-menu li.mm-active > a i.metismenu-state-icon {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 .vertical-nav-menu li a.mm-active {
   color: #333C44;
@@ -624,7 +624,7 @@ header .collapse-expand .icon {
   height: 34px;
   line-height: 34px;
   position: absolute;
-  right: 5px;
+  left: 5px;
   top: 50%;
   margin-top: -17px;
   font-size: 1.5rem;
@@ -633,12 +633,12 @@ header .collapse-expand .icon {
 }
 .vertical-nav-menu i.metismenu-state-icon {
   transition: transform 300ms;
-  right: auto;
-  left: 0;
+  left: auto;
+  right: 0;
 }
 .vertical-nav-menu ul {
   transition: padding 300ms;
-  padding: 0.5em 2rem 0 0;
+  padding: 0.5em 0 0 2rem;
 }
 .vertical-nav-menu ul:before {
   content: "";
@@ -647,7 +647,7 @@ header .collapse-expand .icon {
   width: 3px;
   background: var(--fg-hover-color);
   position: absolute;
-  right: 20px;
+  left: 20px;
   top: 0;
   border-radius: 15px;
 }
@@ -669,7 +669,7 @@ header .collapse-expand .icon {
   font-weight: bold;
 }
 .app-sidebar.sidebar-text-light {
-  border-left: 0 !important;
+  border-right: 0 !important;
 }
 .app-sidebar.sidebar-text-light .app-sidebar__heading {
   color: rgba(255, 255, 255, 0.6);
@@ -725,7 +725,7 @@ header .collapse-expand .icon {
   background-color: rgba(255, 255, 255, 0.8);
 }
 .app-sidebar.sidebar-text-dark {
-  border-left: 0 !important;
+  border-right: 0 !important;
 }
 .app-sidebar.sidebar-text-dark .app-sidebar__heading {
   color: rgba(0, 0, 0, 0.6);
@@ -786,7 +786,7 @@ header .collapse-expand .icon {
 }
 .fixed-sidebar .app-main .app-main__outer {
   z-index: 9;
-  padding-right: 230px;
+  padding-left: 230px;
 }
 .fixed-sidebar.fixed-header .app-sidebar .app-header__logo {
   display: none;
@@ -795,13 +795,13 @@ header .collapse-expand .icon {
   display: flex;
 }
 .fixed-sidebar:not(.fixed-header) .app-header {
-  margin-right: 230px;
+  margin-left: 230px;
 }
 .fixed-sidebar:not(.fixed-header) .app-header .app-header__logo {
   display: none;
 }
 .fixed-sidebar.closed-sidebar:not(.fixed-header) .app-header {
-  margin-right: 80px;
+  margin-left: 80px;
 }
 .fixed-sidebar.closed-sidebar:not(.fixed-header) .app-sidebar .app-header__logo {
   width: 80px;
@@ -811,7 +811,7 @@ header .collapse-expand .icon {
   display: none;
 }
 .fixed-sidebar.closed-sidebar:not(.fixed-header) .app-sidebar .app-header__logo .header__pane {
-  margin-left: auto;
+  margin-right: auto;
 }
 .closed-sidebar .app-sidebar {
   transition: all 0.3s ease;
@@ -827,7 +827,7 @@ header .collapse-expand .icon {
   content: "";
   position: absolute;
   top: 50%;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 1px;
   background: var(--fg-hover-color);
@@ -839,8 +839,8 @@ header .collapse-expand .icon {
 }
 .closed-sidebar .app-sidebar .app-sidebar__inner .metismenu-icon {
   text-indent: 0;
-  right: 50%;
-  margin-right: -17px;
+  left: 50%;
+  margin-left: -17px;
 }
 .closed-sidebar .app-sidebar .app-sidebar__inner .metismenu-state-icon {
   visibility: hidden;
@@ -869,24 +869,24 @@ header .collapse-expand .icon {
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul li a {
   text-indent: initial;
-  padding: 0 45px 0 0.5rem;
+  padding: 0 0.5rem 0 45px;
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner .metismenu-icon {
   text-indent: initial;
-  right: 5px;
-  margin-right: 0;
+  left: 5px;
+  margin-left: 0;
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner .metismenu-state-icon {
   visibility: visible;
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul.mm-show {
-  padding: 0.5em 2rem 0 0;
+  padding: 0.5em 0 0 2rem;
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul.mm-show > li > a {
   height: 2.3em;
 }
 .closed-sidebar .app-sidebar:hover .app-sidebar__inner ul ul li a {
-  padding-right: 1em;
+  padding-left: 1em;
 }
 .closed-sidebar:not(.sidebar-mobile-open) .app-sidebar .scrollbar-sidebar {
   position: static;
@@ -905,10 +905,10 @@ header .collapse-expand .icon {
   display: none;
 }
 .closed-sidebar:not(.closed-sidebar-mobile) .app-header .app-header__logo .header__pane {
-  margin-left: auto;
+  margin-right: auto;
 }
 .closed-sidebar.fixed-sidebar .app-main__outer {
-  padding-right: 80px;
+  padding-left: 80px;
 }
 .closed-sidebar.fixed-header:not(.fixed-sidebar) .app-sidebar .app-header__logo {
   visibility: hidden;
@@ -943,10 +943,10 @@ header .collapse-expand .icon {
   margin: 0;
 }
 .closed-sidebar.closed-sidebar-mobile .app-header {
-  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 .closed-sidebar.fixed-footer .app-footer__inner {
-  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 .ps {
   touch-action: auto;
@@ -965,7 +965,7 @@ header .collapse-expand .icon {
   opacity: 0;
   transition: background-color 0.2s linear, opacity 0.2s linear;
   width: 15px;
-  left: 0;
+  right: 0;
   position: absolute;
   border-radius: 50px;
   z-index: 7;
@@ -1003,7 +1003,7 @@ header .collapse-expand .icon {
   border-radius: 6px;
   transition: background-color 0.2s linear, width 0.2s ease-in-out;
   width: 6px;
-  left: 2px;
+  right: 2px;
   position: absolute;
 }
 .ps__rail-x:hover > .ps__thumb-x,
@@ -1064,7 +1064,7 @@ header .collapse-expand .icon {
   width: 100%;
   bottom: auto;
   top: 0;
-  right: 0;
+  left: 0;
   height: 0.5rem;
   position: absolute;
   z-index: 10;
@@ -1115,7 +1115,7 @@ header .collapse-expand .icon {
   color: #777;
   white-space: nowrap;
 }
-.quik-add .icon {
+.dropdown-quik-add > a > span > .icon {
   fill: white !important;
   stroke: #fff !important;
 }
@@ -1131,6 +1131,6 @@ header .container {
   max-width: 100% !important;
 }
 header .app-logo {
-  margin-right: 20px;
+  margin-left: 20px;
 }
-/*# sourceMappingURL=site.bundle.LRHE7URG.css.map */
+/*# sourceMappingURL=site.bundle.VII23A6G.css.map */
