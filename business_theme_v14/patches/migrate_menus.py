@@ -36,7 +36,6 @@ def execute():
                 "icon": "retail",
                 "is_group": 1,
                 "idx": 4,
-                "parent_globale_menu_item": "Ventes",
                 "items": [
                     {
                         "doctype": "Globale Menu item",
