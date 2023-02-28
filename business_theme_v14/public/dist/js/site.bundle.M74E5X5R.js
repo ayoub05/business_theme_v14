@@ -47,7 +47,7 @@
         let item = menuData[i];
         let selected = current_url.startsWith(item.route);
         menuData[i].selected = selected;
-        if (current_url === "" && item.route === "home")
+        if (current_url === "" && item.route === "index")
           menuData[i].selected = true;
         if (item.parent_globale_menu_item) {
           if (!parentMap[item.parent_globale_menu_item]) {
@@ -88,50 +88,48 @@
       });
       let $sidebar = $(".vertical-nav-menu");
       for (let key in menu) {
-        let item = menu[key];
-        let $li = $("<li></li>").appendTo($sidebar);
-        let $a = $(`<a href="/app/${item.route || "#"}"></a>`).appendTo($li);
-        if (item.selected) {
-          $a.addClass("mm-active");
-          $a.parent().parent().closest("li").addClass("mm-active");
-        }
-        $a.on("click", () => {
-          $(".vertical-nav-menu *").removeClass("mm-active");
-          $a.addClass("mm-active");
-          $a.parent().parent().closest("li").addClass("mm-active");
-        });
-        if (item.icon) {
-          $a.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${item.icon || "folder-normal"}>${frappe.utils.icon(item.icon || "folder-normal", "md")}</i>`);
-        }
-        $a.append(item.name);
-        if (item.items.length) {
-          let $drop_icon = $(`<i class="metismenu-state-icon" >${frappe.utils.icon("small-down", "xs")}</i>`).appendTo($a);
-          let $ul = $("<ul></ul>").appendTo($li);
-          item.items.forEach((child) => {
-            let $childLi = $("<li></li>").appendTo($ul);
-            let $childA = $(`<a href="/app/${child.route || "#"}"></a>`).appendTo($childLi);
-            if (child.selected) {
-              $childA.addClass("mm-active");
-              $childA.parent().parent().closest("li").addClass("mm-active");
-            }
-            if (child.icon) {
-              $childA.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${child.icon || "folder-normal"}>${frappe.utils.icon(child.icon || "folder-normal", "md")}</i>`);
-            }
-            $childA.append(child.name);
-            $childA.on("click", () => {
-              $(".vertical-nav-menu *").removeClass("mm-active");
-              $childA.addClass("mm-active");
-              $childA.parent().parent().closest("li").addClass("mm-active");
-            });
-          });
-          let $child_item_section = $li.find("ul");
-          $drop_icon.on("click", () => {
-            let icon = $drop_icon.find("use").attr("href") === "#icon-small-down" ? "#icon-small-up" : "#icon-small-down";
-            $drop_icon.find("use").attr("href", icon);
-            $child_item_section.toggleClass("hidden");
-          });
-        }
+        let $li = this.get_item(menu[key]);
+        $li.appendTo($sidebar);
       }
+    }
+    get_item(item) {
+      let $li = $("<li></li>");
+      let $a = $(`<a href="${item.route ? "/app/" + item.route : "#"}"></a>`).appendTo($li);
+      if (item.icon) {
+        $a.append(`<i class="metismenu-icon pe-7s-diamond" item-icon=${item.icon || "folder-normal"}>${frappe.utils.icon(item.icon || "folder-normal", "md")}</i>`);
+      }
+      $a.append(item.name);
+      $a.on("click", () => {
+        $(".vertical-nav-menu *").removeClass("mm-active");
+        $a.addClass("mm-active");
+        $a.parent().parent().closest("li").addClass("mm-active");
+      });
+      if (item.items && item.items.length > 0) {
+        $a.on("click", function(event) {
+          event.preventDefault();
+          console.log("a clicked");
+        });
+        let $drop_icon = $(`<i class="metismenu-state-icon" >${frappe.utils.icon("small-down", "xs")}</i>`).appendTo($a);
+        let $ul = $("<ul class='hidden'></ul>").appendTo($li);
+        item.items.forEach((child) => {
+          let $il = this.get_item(child);
+          $il.appendTo($ul);
+        });
+        let $child_item_section = $li.find("ul");
+        $drop_icon.on("click", function(event) {
+          event.preventDefault();
+          console.log("drop_icon clicked");
+          let icon = $drop_icon.find("use").attr("href") === "#icon-small-down" ? "#icon-small-up" : "#icon-small-down";
+          $drop_icon.find("use").attr("href", icon);
+          $child_item_section.toggleClass("hidden");
+        });
+      }
+      if (item.selected) {
+        $a.addClass("mm-active");
+        $a.parent().parent().closest("li").addClass("mm-active");
+        $a.parent().parent().closest("ul").removeClass("hidden");
+      }
+      return $li;
     }
     bind_events() {
     }
@@ -263,4 +261,4 @@
     };
   });
 })();
-//# sourceMappingURL=site.bundle.FR4ALM2P.js.map
+//# sourceMappingURL=site.bundle.M74E5X5R.js.map
