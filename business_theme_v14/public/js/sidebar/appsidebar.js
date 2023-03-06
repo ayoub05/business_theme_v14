@@ -108,15 +108,13 @@ frappe.ui.toolbar.AppSidebar = class {
 			$(".vertical-nav-menu *").removeClass("mm-active");
 			$a.addClass("mm-active");
 			$a.parent().parent().closest('li').addClass("mm-active");
+			
 		});
 
 
 		if (item.items &&item.items.length>0) {
 
-			$a.on("click", function(event)  {
-				event.preventDefault();
-				console.log("a clicked")
-			});
+	
 	
 			let $drop_icon = $(`<i class="metismenu-state-icon" >${frappe.utils.icon("small-down", "xs")}</i>`).appendTo($a);
 			let $ul = $("<ul class='hidden'></ul>").appendTo($li);
@@ -128,9 +126,9 @@ frappe.ui.toolbar.AppSidebar = class {
 			});
 
 			let $child_item_section = $li.find("ul");
-			$drop_icon.on("click", function(event)  {
+			$a.on("click", function(event)  {
 				event.preventDefault();
-				console.log("drop_icon clicked")
+				console.log("drop_icon clicked");
 				let icon =
 					$drop_icon.find("use").attr("href") === "#icon-small-down"
 						? "#icon-small-up"
@@ -138,7 +136,7 @@ frappe.ui.toolbar.AppSidebar = class {
 				$drop_icon.find("use").attr("href", icon);
 				$child_item_section.toggleClass("hidden");
 			});
-
+		
 		}
 		if (item.selected) {
 			$a.addClass("mm-active");
