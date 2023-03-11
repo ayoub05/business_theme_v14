@@ -1,4 +1,4 @@
-/* ../../../../../../tmp/tmp-640858-tZFlGfC4PJMm/business_theme_v14/business_theme_v14/public/scss/site.bundle.css */
+/* ../../../../../../tmp/tmp-4422-RE0tAAbTM2Jx/business_theme_v14/business_theme_v14/public/scss/site.bundle.css */
 :root,
 [data-theme=light] {
   --brand-color: #0089FF;
@@ -1096,6 +1096,12 @@ header .collapse-expand .icon {
     0 0.25rem 0.53125rem rgba(63, 106, 216, 0.05),
     0 0.125rem 0.1875rem rgba(63, 106, 216, 0.03);
 }
+.navbar {
+  height: 60px;
+  background: #4c2b2b !important;
+  box-shadow: var(--shadow-sm);
+  padding: 0;
+}
 .search-bar {
   flex: 1;
   max-width: 700px;
@@ -1121,8 +1127,8 @@ header .collapse-expand .icon {
 }
 .dropdown-quik-add a.btn {
   background-color: #2490EF;
-  fill: #fff;
-  stroke: #fff;
+  fill: #f80000;
+  stroke: #ff0000;
 }
 header .container {
   margin: 0px;
@@ -1133,4 +1139,4 @@ header .container {
 header .app-logo {
   margin-right: 20px;
 }
-/*# sourceMappingURL=site.bundle.XC3KRF6D.css.map */
+/*# sourceMappingURL=site.bundle.PFDTMLSY.css.map */

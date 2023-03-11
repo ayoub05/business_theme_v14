@@ -17,6 +17,12 @@ $border-radius-lg: 8px;
     box-shadow: 0 0.46875rem 2.1875rem rgb(63 106 216 / 3%), 0 0.9375rem 1.40625rem rgb(63 106 216 / 3%), 0 0.25rem 0.53125rem rgb(63 106 216 / 5%), 0 0.125rem 0.1875rem rgb(63 106 216 / 3%);
    
 } 
+.navbar {
+    height: 60px;
+    background: #4c2b2b !important;
+    box-shadow: var(--shadow-sm);
+    padding: 0;
+}
 .search-bar {
 	flex: 1;
 	max-width: 700px;
@@ -52,8 +58,8 @@ $border-radius-lg: 8px;
 .dropdown-quik-add{
     a.btn{
         background-color: $primary;
-        fill:#fff ;
-        stroke:#fff ;
+        fill:#f80000 ;
+        stroke:#ff0000 ;
     } 
 } 
 header{
